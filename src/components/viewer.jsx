@@ -1,19 +1,23 @@
 import React from 'react'
 import { connect } from 'react-redux';
+import SplitPane from 'react-split-pane';
 
 const Viewer = ({ code, error }) => {
     return (
-        <div>
-            {code}
-                <br />
-            {validateError(error)}
+        <div className="Viewer">
+            <SplitPane split="horizontal" defaultSize={200} primary="second">
+                <div className="Code">{code}</div>
+                <div>{validateError(error)}</div>
+            </SplitPane>
         </div>
     );
 }
 
 const validateError = error => {
-    if(error) {
-        return `Error at line ${error.lineNumber} and col ${error.column}: ${error.description}`;
+    if (error) {
+        return <p className="Error">
+            Error at line <strong>{error.lineNumber}</strong> and col <strong>{error.column}</strong>: {error.description}
+        </p>;
     }
     return <p></p>
 }
