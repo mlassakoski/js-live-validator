@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import SplitPane from 'react-split-pane';
 import './App.css';
 import Editor from './components/editor';
