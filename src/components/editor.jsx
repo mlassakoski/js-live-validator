@@ -10,11 +10,12 @@ import 'codemirror/addon/edit/closebrackets';
 import 'codemirror/addon/hint/show-hint';
 import 'codemirror/addon/hint/javascript-hint';
 import 'codemirror/addon/hint/show-hint.css';
+import 'codemirror/addon/hint/html-hint';
 import 'codemirror/theme/darcula.css';
 
 const Editor = ({ code, onUpdate }) => {
     const options = { 
-        mode: 'javascript', 
+        mode: 'jsx', 
         lineNumbers: true, 
         lineWrapping: true,
         tabSize: 2,
@@ -44,7 +45,7 @@ const Editor = ({ code, onUpdate }) => {
 const update = (code, onUpdate) => {
     let errorMsg = '';
     try {
-        parseScript(code)
+        parseScript(code,  { jsx: true, tolerant: true, comment: true })
     } catch (error) {
         errorMsg = error
     }

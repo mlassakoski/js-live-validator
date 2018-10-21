@@ -9,13 +9,22 @@
 
 .Viewer .Pane {
     border-bottom: 0.2rem solid #ccc;
-    padding: 0.5rem;
 }
 
 .Viewer .Code{
-    height: 80%;
+    height: 100%;
 }
 
 .Error {
     color: #FF0000;
+}
+
+.Code pre {
+    height: 100%;
+    margin: 0;
+}
+
+.Code pre code{
+    height: 100%;
+    padding: 0;
 }

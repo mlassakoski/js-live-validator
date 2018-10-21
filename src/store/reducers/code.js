@@ -1,7 +1,7 @@
 import { CODE_UPDATE } from '../actions';
 
 export const initialState = {
-    code: '// type your code here_',
+    code: '',
     error: ''
 }
 

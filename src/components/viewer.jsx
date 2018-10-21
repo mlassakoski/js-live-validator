@@ -1,12 +1,19 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import SplitPane from 'react-split-pane';
+import 'codemirror/theme/neo.css';
+import 'codemirror/addon/display/autorefresh';
+import Highlight from 'react-highlight'
 
 const Viewer = ({ code, error }) => {
     return (
         <div className="Viewer">
             <SplitPane split="horizontal" defaultSize={200} primary="second">
-                <div className="Code">{code}</div>
+                <div className="Code">
+                    <Highlight language='javascript'>
+                        {code}
+                    </Highlight>
+                </div>
                 <div>{validateError(error)}</div>
             </SplitPane>
         </div>
